@@ -33,12 +33,12 @@ public class MainActivity extends AppCompatActivity {
 //    }
 //
 //
-//    public void onClick(View view) {
-//        Intent intent = new Intent(MainActivity.this, ChoiceTownActivity.class);
-//        startActivity(intent);
+    public void onClick(View view) {
+        Intent intent = new Intent(MainActivity.this, ChoiceTownActivity.class);
+        startActivity(intent);
 //        Toast.makeText(getApplicationContext(), "changeActivity", Toast.LENGTH_SHORT).show();
 //        Log.d("changeActivity", "changeActivity");
-//    }
+    }
 //
 //    @Override
 //    protected void onRestoreInstanceState(Bundle saveInstanceState){
