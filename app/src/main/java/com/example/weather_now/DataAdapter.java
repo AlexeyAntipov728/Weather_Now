@@ -1,9 +1,11 @@
 package com.example.weather_now;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,10 +14,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
+
     private LayoutInflater inflater;
     private List<City> cityList;
 
-    public DataAdapter(Context context, List<City> cityList){
+    public DataAdapter(Context context, List<City> cityList) {
         this.cityList = cityList;
         this.inflater = LayoutInflater.from(context);
     }
@@ -23,7 +26,6 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
     @Override
     public DataAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.list_item, parent, false);
-
         return new ViewHolder(view);
     }
 
@@ -35,16 +37,15 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return cityList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView cityView;
-         ViewHolder(View view){
+
+        ViewHolder(View view) {
             super(view);
             cityView = view.findViewById(R.id.city);
-
         }
-
     }
 }
