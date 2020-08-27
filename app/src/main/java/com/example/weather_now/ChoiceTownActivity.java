@@ -1,8 +1,10 @@
 package com.example.weather_now;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
+import android.view.View;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
@@ -14,7 +16,7 @@ import java.util.List;
 public class ChoiceTownActivity extends Activity {
     private static final String CITY_TO_SEARCH = "CITY_TO_SEARCH";
     List<City> cityList = new ArrayList<>();
-    private EditText editText = findViewById(R.id.editText);
+    private EditText editText;
     Editable search;
 
 
@@ -22,10 +24,23 @@ public class ChoiceTownActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choice_town);
+
+        editText = (EditText) findViewById(R.id.editText);
         RecyclerView rc = findViewById(R.id.cities);
         DataAdapter dataAdapter = new DataAdapter(this, cityList);
         rc.setAdapter(dataAdapter);
         setInitialData();
+
+    }
+
+    public void updateCity(View view){
+        search = editText.getText();
+        if(search.length() != 0){
+
+            Intent updateCity = new Intent(ChoiceTownActivity.this, MainActivity.class);
+            updateCity.putExtra(CITY_TO_SEARCH, search);
+            startActivity(updateCity);
+        }
     }
 
     private void setInitialData() {

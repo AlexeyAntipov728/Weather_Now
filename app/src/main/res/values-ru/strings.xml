@@ -12,4 +12,5 @@
     <string name="windVolume">sw, 3–6 m/s</string>
     <string name="choice_your_city">Выбрать свой город</string>
     <string name="choise_town">...</string>
+    <string name="searchButton">"Поиск"</string>
 </resources>

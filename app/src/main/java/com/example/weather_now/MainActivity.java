@@ -2,21 +2,33 @@ package com.example.weather_now;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
+
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    TextView city;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        city = (TextView) findViewById(R.id.city);
+        city.setText("Москва");
+
+        Intent updCity = getIntent();
+        String changeCity = updCity.getStringExtra("CITY_TO_SEARCH");
+        if (changeCity != null) {
+
+            city.setText(changeCity);
+        }
+
+
         String instanceState;
         if (savedInstanceState == null) {
             instanceState = "Первый запуск!";
